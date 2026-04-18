@@ -60,8 +60,8 @@ class ImageViewerPage extends ConsumerWidget {
               DropdownButton<SortMode>(
                 value: state.sortMode,
                 icon: const Icon(Icons.sort, color: Colors.white),
-// ... (rest of the app bar logic)
-            underline: Container(),
+                dropdownColor: Theme.of(context).colorScheme.primary,
+                underline: const SizedBox(),
             onChanged: (SortMode? newValue) {
               if (newValue != null) {
                 ref.read(imageGalleryProvider.notifier).setSortMode(newValue);
@@ -93,7 +93,14 @@ class ImageViewerPage extends ConsumerWidget {
             final items = ref.read(imageGalleryProvider).items.whereType<ImageData>().toList();
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ImagePopup(images: items, initialIndex: index)),
+              PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (context, animation, secondaryAnimation) => 
+                    ImagePopup(images: items, initialIndex: index),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+              ),
             );
           }
         },

@@ -56,7 +56,7 @@ class _ImagePopupState extends State<ImagePopup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black.withOpacity(0.85),
       body: Stack(
         children: [
           PhotoViewGallery.builder(
@@ -78,7 +78,7 @@ class _ImagePopupState extends State<ImagePopup> {
               });
             },
             scrollPhysics: const BouncingScrollPhysics(),
-            backgroundDecoration: const BoxDecoration(color: Colors.black),
+            backgroundDecoration: const BoxDecoration(color: Colors.transparent),
           ),
           
           // Back button (like AppBar)
