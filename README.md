@@ -4,6 +4,17 @@ A modern, high-performance image gallery application built with a scalable **Fas
 
 ---
 
+## 🖼️ Screenshots
+
+<p align="center">
+  <img src="screenshots/app.png" width="24%" alt="Main Gallery" />
+  <img src="screenshots/imageView.jpg" width="24%" alt="Image Viewer" />
+  <img src="screenshots/detailTags.png" width="24%" alt="Tag Viewer" />
+  <img src="screenshots/api_endpoints.jpg" width="24%" alt="API Swagger" />
+</p>
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Backend

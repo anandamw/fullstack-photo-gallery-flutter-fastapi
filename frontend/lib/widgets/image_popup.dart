@@ -59,26 +59,30 @@ class _ImagePopupState extends State<ImagePopup> {
       backgroundColor: Colors.black.withOpacity(0.85),
       body: Stack(
         children: [
-          PhotoViewGallery.builder(
-            itemCount: widget.images.length,
-            builder: (context, index) {
-              final image = widget.images[index];
-              return PhotoViewGalleryPageOptions(
-                imageProvider: NetworkImage("${BackendConfig.baseUrl}/f/${image.url}"),
-                initialScale: PhotoViewComputedScale.contained,
-                minScale: PhotoViewComputedScale.contained * 0.8,
-                maxScale: PhotoViewComputedScale.covered * 2,
-                heroAttributes: PhotoViewHeroAttributes(tag: image.id),
-              );
-            },
-            pageController: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            scrollPhysics: const BouncingScrollPhysics(),
-            backgroundDecoration: const BoxDecoration(color: Colors.transparent),
+          // Memberi margin sumbu X pada gambar
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 70.0),
+            child: PhotoViewGallery.builder(
+              itemCount: widget.images.length,
+              builder: (context, index) {
+                final image = widget.images[index];
+                return PhotoViewGalleryPageOptions(
+                  imageProvider: NetworkImage("${BackendConfig.baseUrl}/f/${image.url}"),
+                  initialScale: PhotoViewComputedScale.contained,
+                  minScale: PhotoViewComputedScale.contained * 0.8,
+                  maxScale: PhotoViewComputedScale.covered * 2,
+                  heroAttributes: PhotoViewHeroAttributes(tag: image.id),
+                );
+              },
+              pageController: _pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+              scrollPhysics: const BouncingScrollPhysics(),
+              backgroundDecoration: const BoxDecoration(color: Colors.transparent),
+            ),
           ),
           
           // Back button (like AppBar)
@@ -91,7 +95,7 @@ class _ImagePopupState extends State<ImagePopup> {
             ),
           ),
 
-          // Left Arrow Overlays
+          // Left Arrow Overlays - Modern
           if (_currentIndex > 0)
             Align(
               alignment: Alignment.centerLeft,
@@ -100,21 +104,21 @@ class _ImagePopupState extends State<ImagePopup> {
                 child: GestureDetector(
                   onTap: _goToPrevious,
                   child: Container(
-                    width: 70,
-                    height: 120,
+                    width: 50,
+                    height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey.withOpacity(0.6),
-                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.white.withOpacity(0.15),
+                      shape: BoxShape.circle,
                     ),
                     child: const Center(
-                      child: Icon(Icons.play_arrow, color: Colors.lightGreenAccent, size: 30, textDirection: TextDirection.rtl),
+                      child: Icon(Icons.chevron_left, color: Colors.white, size: 36),
                     ),
                   ),
                 ),
               ),
             ),
 
-          // Right Arrow Overlays
+          // Right Arrow Overlays - Modern
           if (_currentIndex < widget.images.length - 1)
             Align(
               alignment: Alignment.centerRight,
@@ -123,14 +127,14 @@ class _ImagePopupState extends State<ImagePopup> {
                 child: GestureDetector(
                   onTap: _goToNext,
                   child: Container(
-                    width: 70,
-                    height: 120,
+                    width: 50,
+                    height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey.withOpacity(0.6),
-                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.white.withOpacity(0.15),
+                      shape: BoxShape.circle,
                     ),
                     child: const Center(
-                      child: Icon(Icons.play_arrow, color: Colors.lightGreenAccent, size: 30),
+                      child: Icon(Icons.chevron_right, color: Colors.white, size: 36),
                     ),
                   ),
                 ),
