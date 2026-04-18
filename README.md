@@ -52,12 +52,20 @@ photo-gallery-app/
 
 ### 1. Database Setup (MySQL)
 
-1.  Open your MySQL client (e.g., Laragon Terminal, phpMyAdmin, or HeidiSQL).
-2.  Create the database and tables by running the script:
-    ```sql
-    source init.sql
+1.  Ensure your MySQL server (via Laragon/XAMPP) is running.
+2.  Import the database schema using your preferred terminal from the project root. It will create a database named `images` and set up the required tables & procedures.
+
+    **Command Prompt (CMD) & Bash:**
+    ```bash
+    mysql -u root -p < init.sql
     ```
-    _This creates a database named `images` and sets up the required stored procedures._
+
+    **PowerShell:**
+    ```powershell
+    Get-Content init.sql | mysql -u root -p
+    ```
+
+    *(Alternatively, you can log into the MySQL client console and type `source init.sql`)*
 
 ### 2. Backend Setup (FastAPI)
 
