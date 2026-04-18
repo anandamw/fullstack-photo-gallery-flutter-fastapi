@@ -222,10 +222,14 @@ class ImageServer:
             description (str): 
             tag (str, optional):. Defaults to "".
         """
+        # Truncate strings to match MySQL Database limits
+        safe_title = title[:20] if title else ""
+        safe_desc = description[:100] if description else ""
+
         mycursor = self.db.cursor()
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         sql = "INSERT INTO image (uuid, type, title, description, time_created) VALUES (%s, %s, %s, %s, %s)"
-        val = (file_uuid, file_type, title, description, now)
+        val = (file_uuid, file_type, safe_title, safe_desc, now)
         mycursor.execute(sql, val)
 
         image_id = mycursor.lastrowid
