@@ -26,7 +26,6 @@ class ImageViewerPage extends ConsumerWidget {
       appBar: isSelectionMode 
         ? AppBar(
             title: Text("${state.selectedIds.length} Selected"),
-            backgroundColor: Colors.blueGrey,
             leading: IconButton(
               icon: const Icon(Icons.close),
               onPressed: () => ref.read(imageGalleryProvider.notifier).setSelectionMode(false),
@@ -52,7 +51,6 @@ class ImageViewerPage extends ConsumerWidget {
           )
         : AppBar(
             title: Text(tag ?? "All Images"),
-            backgroundColor: Colors.orange,
             actions: [
               IconButton(
                 icon: const Icon(Icons.check_box_outline_blank),
@@ -63,7 +61,6 @@ class ImageViewerPage extends ConsumerWidget {
                 value: state.sortMode,
                 icon: const Icon(Icons.sort, color: Colors.white),
 // ... (rest of the app bar logic)
-            dropdownColor: Colors.orange,
             underline: Container(),
             onChanged: (SortMode? newValue) {
               if (newValue != null) {

@@ -77,7 +77,6 @@ class _UploadPageState extends ConsumerState<UploadPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Upload Images"),
-        backgroundColor: Colors.blueGrey,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),

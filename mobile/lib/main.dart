@@ -18,8 +18,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Gallery App',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF0F4C81), // Dark blue
+          primary: const Color(0xFF0F4C81),
+          secondary: Colors.teal,
+        ),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF0F4C81),
+          foregroundColor: Colors.white,
+          elevation: 2,
+          centerTitle: true,
+        ),
+        scaffoldBackgroundColor: const Color(0xFFF4F6F9),
       ),
       home: const TagViewerPage(),
     );

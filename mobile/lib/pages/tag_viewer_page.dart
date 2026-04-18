@@ -22,7 +22,6 @@ class TagViewerPage extends ConsumerWidget {
             );
           },
         ),
-        backgroundColor: Colors.orange,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
