@@ -37,12 +37,18 @@ class GalleryTile extends StatelessWidget {
           if (tileData.overlay != Colors.transparent || isSelected)
             Positioned.fill(
               child: Container(
-                color: isSelected 
-                  ? Colors.blue.withOpacity(0.4) 
-                  : tileData.overlay,
-                child: isSelected 
-                  ? const Center(child: Icon(Icons.check_circle, color: Colors.white, size: 40))
-                  : null,
+                color: isSelected
+                    ? Colors.blue.withOpacity(0.4)
+                    : tileData.overlay,
+                child: isSelected
+                    ? const Center(
+                        child: Icon(
+                          Icons.check_circle,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                      )
+                    : null,
               ),
             ),
           if (tileData is TagData)
