@@ -31,8 +31,7 @@ photo-gallery-app/
 │   ├── app/           # Application Logic
 │   ├── files/         # Image & Thumbnail storage
 │   └── .env           # Configuration (Database, etc)
-├── mobile/             # Modern Flutter Frontend (Riverpod)
-├── frontend/           # Legacy Frontend (Deprecated)
+├── frontend/           # Modern Flutter Frontend (Riverpod)
 └── init.sql            # Database Schema
 ```
 
@@ -77,9 +76,9 @@ photo-gallery-app/
 
 ### 3. Frontend Setup (Flutter)
 
-1.  Navigate to the `mobile` directory:
+1.  Navigate to the `frontend` directory:
     ```bash
-    cd mobile
+    cd frontend
     ```
 2.  Install dependencies:
     ```bash
